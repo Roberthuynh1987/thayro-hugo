@@ -1,0 +1,89 @@
+{{ $slug := .File.BaseFileName }}
+{{ if eq $slug "01-check-dien-thoai" }}
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="460" fill="#eeeae2"/>
+  <circle cx="680" cy="80" r="180" fill="none" stroke="#c9b99a" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="680" cy="80" r="110" fill="none" stroke="#c9b99a" stroke-width="0.5" opacity="0.3"/>
+  <!-- Phone -->
+  <rect x="300" y="80" width="200" height="340" rx="22" fill="#fff" stroke="#c9b99a" stroke-width="2"/>
+  <rect x="316" y="104" width="168" height="288" rx="6" fill="#f0ece4"/>
+  <circle cx="400" cy="398" r="13" fill="none" stroke="#c9b99a" stroke-width="1.5"/>
+  <rect x="365" y="88" width="70" height="6" rx="3" fill="#e4e1d8"/>
+  <!-- Screen lines -->
+  <rect x="330" y="120" width="100" height="10" rx="3" fill="#c9b99a" opacity="0.45"/>
+  <rect x="330" y="138" width="140" height="7" rx="2" fill="#c9b99a" opacity="0.28"/>
+  <rect x="330" y="152" width="120" height="7" rx="2" fill="#c9b99a" opacity="0.28"/>
+  <rect x="330" y="175" width="140" height="40" rx="5" fill="#c9b99a" opacity="0.18"/>
+  <rect x="330" y="226" width="140" height="7" rx="2" fill="#c9b99a" opacity="0.22"/>
+  <rect x="330" y="240" width="110" height="7" rx="2" fill="#c9b99a" opacity="0.22"/>
+  <!-- Loop arrow -->
+  <path d="M 220 220 Q 160 170 165 230 Q 170 290 225 265" fill="none" stroke="#7a6a52" stroke-width="2" stroke-dasharray="5,4" opacity="0.65"/>
+  <polygon points="218,261 230,270 228,254" fill="#7a6a52" opacity="0.65"/>
+  <!-- 0 notif badge -->
+  <circle cx="464" cy="108" r="11" fill="#e4e1d8" stroke="#c9b99a" stroke-width="1"/>
+  <text x="464" y="113" font-family="Georgia,serif" font-size="10" fill="#a8a7a2" text-anchor="middle">0</text>
+  <!-- Label -->
+  <text x="155" y="215" font-family="Georgia,serif" font-size="15" fill="#7a6a52" text-anchor="middle" opacity="0.9" font-style="italic">3 giây...</text>
+  <text x="155" y="238" font-family="Georgia,serif" font-size="15" fill="#7a6a52" text-anchor="middle" opacity="0.9" font-style="italic">lại check</text>
+  <circle cx="100" cy="230" r="4" fill="#c9b99a" opacity="0.5"/>
+  <circle cx="116" cy="230" r="4" fill="#c9b99a" opacity="0.5"/>
+  <circle cx="132" cy="230" r="4" fill="#c9b99a" opacity="0.5"/>
+</svg>
+{{ else if eq $slug "02-ai-dang-buc" }}
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="460" fill="#eeeae2"/>
+  <circle cx="310" cy="230" r="160" fill="#c9b99a" opacity="0.13" stroke="#c9b99a" stroke-width="1.2"/>
+  <circle cx="490" cy="230" r="160" fill="#7a6a52" opacity="0.1" stroke="#7a6a52" stroke-width="1.2"/>
+  <ellipse cx="400" cy="230" rx="60" ry="95" fill="#7a6a52" opacity="0.07"/>
+  <text x="270" y="215" font-family="Georgia,serif" font-size="15" fill="#3d3c38" text-anchor="middle" opacity="0.65">Người đang bực</text>
+  <text x="530" y="215" font-family="Georgia,serif" font-size="15" fill="#3d3c38" text-anchor="middle" opacity="0.65">Người đang biết</text>
+  <text x="400" y="238" font-family="Georgia,serif" font-size="28" fill="#7a6a52" text-anchor="middle" opacity="0.7">?</text>
+  <path d="M 80 350 Q 140 310 200 350 Q 260 390 320 350 Q 380 310 440 350 Q 500 390 560 350 Q 620 310 680 350 Q 740 390 800 350" fill="none" stroke="#c9b99a" stroke-width="1.5" opacity="0.45"/>
+  <text x="80" y="130" font-family="Georgia,serif" font-size="64" fill="#c9b99a" opacity="0.18">怒</text>
+  <text x="660" y="390" font-family="Georgia,serif" font-size="64" fill="#c9b99a" opacity="0.18">知</text>
+</svg>
+{{ else if eq $slug "03-vo-thuong" }}
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="460" fill="#eeeae2"/>
+  <path d="M 0 230 Q 100 170 200 230 Q 300 290 400 230 Q 500 170 600 230 Q 700 290 800 230" fill="none" stroke="#c9b99a" stroke-width="2.5" opacity="0.7"/>
+  <path d="M 0 250 Q 100 190 200 250 Q 300 310 400 250 Q 500 190 600 250 Q 700 310 800 250" fill="none" stroke="#c9b99a" stroke-width="1" opacity="0.35"/>
+  <path d="M 0 210 Q 100 150 200 210 Q 300 270 400 210 Q 500 150 600 210 Q 700 270 800 210" fill="none" stroke="#c9b99a" stroke-width="1" opacity="0.25"/>
+  <circle cx="200" cy="230" r="7" fill="#7a6a52" opacity="0.55"/>
+  <circle cx="400" cy="230" r="7" fill="#7a6a52" opacity="0.55"/>
+  <circle cx="600" cy="230" r="7" fill="#7a6a52" opacity="0.55"/>
+  <line x1="400" y1="110" x2="400" y2="188" stroke="#7a6a52" stroke-width="2" opacity="0.65"/>
+  <polygon points="393,184 407,184 400,200" fill="#7a6a52" opacity="0.65"/>
+  <text x="400" y="98" font-family="Georgia,serif" font-size="14" fill="#7a6a52" text-anchor="middle" opacity="0.8" font-style="italic">ngay lúc này · right now</text>
+  <text x="370" y="410" font-family="Georgia,serif" font-size="72" fill="#c9b99a" opacity="0.2">∞</text>
+  <circle cx="90" cy="230" r="100" fill="none" stroke="#c9b99a" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="710" cy="230" r="100" fill="none" stroke="#c9b99a" stroke-width="0.5" opacity="0.3"/>
+</svg>
+{{ else if eq $slug "04-lang-im-trong-hop" }}
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="460" fill="#eeeae2"/>
+  <ellipse cx="400" cy="260" rx="280" ry="120" fill="#fff" stroke="#c9b99a" stroke-width="1.5" opacity="0.75"/>
+  <circle cx="400" cy="130" r="28" fill="#d4c4a8" opacity="0.65"/>
+  <circle cx="200" cy="210" r="28" fill="#d4c4a8" opacity="0.65"/>
+  <circle cx="600" cy="210" r="28" fill="#d4c4a8" opacity="0.65"/>
+  <circle cx="240" cy="340" r="28" fill="#d4c4a8" opacity="0.65"/>
+  <circle cx="560" cy="340" r="28" fill="#d4c4a8" opacity="0.65"/>
+  <!-- speech from right -->
+  <path d="M 568 194 Q 614 172 636 183 Q 658 194 634 205 Q 610 216 568 206 Z" fill="#c9b99a" opacity="0.45"/>
+  <!-- thought bubbles from left -->
+  <circle cx="237" cy="192" r="5" fill="#c9b99a" opacity="0.35"/>
+  <circle cx="232" cy="182" r="4" fill="#c9b99a" opacity="0.3"/>
+  <rect x="210" y="158" width="50" height="20" rx="4" fill="#c9b99a" opacity="0.2"/>
+  <!-- listener = empty circle / stillness -->
+  <circle cx="400" cy="107" r="18" fill="none" stroke="#7a6a52" stroke-width="1.2" stroke-dasharray="3,2.5" opacity="0.55"/>
+  <text x="400" y="113" font-family="Georgia,serif" font-size="14" fill="#7a6a52" text-anchor="middle" opacity="0.6">◯</text>
+  <text x="400" y="420" font-family="Georgia,serif" font-size="13" fill="#7a6a52" text-anchor="middle" opacity="0.65" font-style="italic">chỉ nghe thôi · just listen</text>
+</svg>
+{{ else }}
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="460" fill="#eeeae2"/>
+  <circle cx="400" cy="230" r="200" fill="none" stroke="#c9b99a" stroke-width="1" opacity="0.4"/>
+  <circle cx="400" cy="230" r="130" fill="none" stroke="#c9b99a" stroke-width="0.7" opacity="0.3"/>
+  <circle cx="400" cy="230" r="60" fill="#c9b99a" opacity="0.08"/>
+  <text x="400" y="250" font-family="Georgia,serif" font-size="60" text-anchor="middle" fill="#c9b99a" opacity="0.3">◯</text>
+</svg>
+{{ end }}
