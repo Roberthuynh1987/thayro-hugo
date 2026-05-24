@@ -1,0 +1,3 @@
+---
+title: "Seeing Clearly"
+---
