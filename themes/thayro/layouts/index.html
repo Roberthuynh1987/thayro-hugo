@@ -1,0 +1,132 @@
+{{ define "main" }}
+{{ $lang := .Language.Lang }}
+{{ $isVn := eq $lang "vn" }}
+
+{{/* ── HERO ── */}}
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-kicker">
+      {{ if $isVn }}Blog · Tánh biết · Thực tại · Trí tuệ
+      {{ else }}Blog · Awareness · Reality · Wisdom{{ end }}
+    </p>
+    <h1 class="hero-h1">
+      {{ if $isVn }}Thấy <em>rõ hơn.</em><br>Sống nhẹ hơn.
+      {{ else }}See <em>clearly.</em><br>Live lighter.{{ end }}
+    </h1>
+    <p class="hero-sub">{{ .Site.Params.tagline }}</p>
+    <div class="hero-cta">
+      <a class="hero-btn" href="#posts">
+        {{ if $isVn }}Đọc bài viết ↓{{ else }}Read posts ↓{{ end }}
+      </a>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="250" r="240" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+      <circle cx="250" cy="250" r="180" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.2"/>
+      <circle cx="250" cy="250" r="110" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15"/>
+      <circle cx="250" cy="250" r="50" fill="currentColor" opacity="0.04"/>
+      <text x="250" y="275" font-family="Georgia,serif" font-size="80" text-anchor="middle" fill="currentColor" opacity="0.06">觉</text>
+    </svg>
+  </div>
+</section>
+
+{{/* ── POSTS ── */}}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $featured := index $posts 0 }}
+{{ $rest := after 1 $posts }}
+
+{{ with $featured }}
+<section class="featured-section" id="posts">
+  <div class="container">
+    <p class="sec-label">
+      {{ if $isVn }}Bài nổi bật{{ else }}Featured{{ end }}
+    </p>
+    <a class="feat-card" href="{{ .Permalink }}">
+      <div class="feat-visual">
+        {{ partial "post-svg.html" . }}
+      </div>
+      <div class="feat-body">
+        <div class="feat-meta">
+          {{ with .Params.tag }}<span class="tag">{{ . }}</span>{{ end }}
+          <span class="feat-num">01</span>
+        </div>
+        <h2 class="feat-title">{{ .Title }}</h2>
+        <p class="feat-excerpt">{{ .Params.excerpt | default .Summary }}</p>
+        <span class="read-more">
+          {{ if $isVn }}Đọc bài{{ else }}Read{{ end }} →
+        </span>
+      </div>
+    </a>
+  </div>
+</section>
+{{ end }}
+
+{{ if $rest }}
+<section class="posts-section">
+  <div class="container">
+    <p class="sec-label">
+      {{ if $isVn }}Bài viết gần đây{{ else }}Recent posts{{ end }}
+    </p>
+    <div class="posts-grid">
+      {{ range $rest }}
+      <a class="post-card" href="{{ .Permalink }}">
+        <div class="post-card-visual">
+          {{ partial "post-svg.html" . }}
+        </div>
+        <div class="post-card-body">
+          {{ with .Params.tag }}<span class="post-card-tag">{{ . }}</span>{{ end }}
+          <h3 class="post-card-title">{{ .Title }}</h3>
+          <p class="post-card-excerpt">{{ .Params.excerpt | default .Summary }}</p>
+          <div class="post-card-meta">
+            <span class="post-time">
+              {{ if $isVn }}{{ .ReadingTime }} phút đọc{{ else }}{{ .ReadingTime }} min read{{ end }}
+            </span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ── PRINCIPLES ── */}}
+<section class="manifesto-strip">
+  <div class="container">
+    <p class="sec-label">{{ if $isVn }}4 nguyên tắc{{ else }}4 principles{{ end }}</p>
+    <div class="manifesto-grid">
+      {{ if $isVn }}
+      <div class="manifesto-item"><div class="manifesto-num">01</div><div class="manifesto-title">Quan sát, không phán xét</div><div class="manifesto-body">Không có đúng sai. Chỉ nhìn xem tâm đang làm gì.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">02</div><div class="manifesto-title">Ứng dụng ngay, không trì hoãn</div><div class="manifesto-body">Mỗi bài có ít nhất một thứ thử được hôm nay.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">03</div><div class="manifesto-title">Sâu nhưng không nặng nề</div><div class="manifesto-body">Ví dụ đời thường. Không bao giờ thuyết giáo.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">04</div><div class="manifesto-title">Không dán nhãn</div><div class="manifesto-body">Không Phật giáo, không thiền định. Thuần túy quan sát.</div></div>
+      {{ else }}
+      <div class="manifesto-item"><div class="manifesto-num">01</div><div class="manifesto-title">Observe, don't judge</div><div class="manifesto-body">No right or wrong. Just notice what the mind is doing.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">02</div><div class="manifesto-title">Apply now, not someday</div><div class="manifesto-body">Every post has something to try today.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">03</div><div class="manifesto-title">Deep, but not heavy</div><div class="manifesto-body">Everyday examples. Never preachy.</div></div>
+      <div class="manifesto-item"><div class="manifesto-num">04</div><div class="manifesto-title">No labels</div><div class="manifesto-body">Not Buddhism, not meditation. Pure observation.</div></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── SUBSCRIBE ── */}}
+<section class="subscribe-section">
+  <div class="container">
+    <div class="subscribe-inner">
+      <div class="subscribe-text">
+        <h3>{{ if $isVn }}Nhận bài viết mới{{ else }}Get new posts{{ end }}</h3>
+        <p>{{ if $isVn }}Mỗi tuần một bài — ngắn gọn, sâu sắc, ứng dụng được ngay.{{ else }}One post a week — concise, deep, immediately applicable.{{ end }}</p>
+      </div>
+      <form class="sub-form" onsubmit="handleSub(event)">
+        <input class="sub-input" type="email" placeholder="email@gmail.com" required>
+        <button type="submit" class="sub-btn">
+          {{ if $isVn }}Đăng ký{{ else }}Subscribe{{ end }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{{ end }}
