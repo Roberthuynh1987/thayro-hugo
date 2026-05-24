@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $lang := .Language.Lang }}
+{{ $isVn := eq $lang "vn" }}
+
+<section class="posts-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">{{ if $isVn }}Tất cả bài viết{{ else }}All posts{{ end }}</h1>
+    </div>
+    <div class="posts-list">
+      {{ range .Pages }}
+      <a class="post-list-item" href="{{ .Permalink }}">
+        <div class="post-list-meta">
+          {{ with .Params.tag }}<span class="tag">{{ . }}</span>{{ end }}
+          <span class="post-time">{{ .Date.Format "02.01.2006" }}</span>
+        </div>
+        <h2 class="post-list-title">{{ .Title }}</h2>
+        <p class="post-list-excerpt">{{ .Params.excerpt | default .Summary }}</p>
+        <span class="read-more">{{ if $isVn }}Đọc bài{{ else }}Read{{ end }} →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
