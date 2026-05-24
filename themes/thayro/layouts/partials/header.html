@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="{{ "/" | relLangURL }}">Thấy <em>Rõ</em></a>
+    <nav class="header-nav">
+      <a class="nav-link" href="{{ "/" | relLangURL }}">
+        {{- if eq .Language.Lang "vn" }}Bài viết{{ else }}Posts{{ end -}}
+      </a>
+      <a class="nav-link" href="{{ "/about" | relLangURL }}">
+        {{- if eq .Language.Lang "vn" }}Về blog{{ else }}About{{ end -}}
+      </a>
+
+      {{/* Language switcher */}}
+      <div class="lang-switcher">
+        {{ range .Site.Languages }}
+        {{ $langURL := "" }}
+        {{ if eq .Lang "vn" }}
+          {{ $langURL = "/" }}
+        {{ else }}
+          {{ $langURL = "/en/" }}
+        {{ end }}
+        <a href="{{ $langURL }}"
+           class="lang-btn{{ if eq .Lang $.Language.Lang }} active{{ end }}">
+          {{ if eq .Lang "vn" }}VI{{ else }}EN{{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </nav>
+  </div>
+</header>
