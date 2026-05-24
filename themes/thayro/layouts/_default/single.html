@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ $lang := .Language.Lang }}
+{{ $isVn := eq $lang "vn" }}
+
+<article>
+  {{/* ── POST HERO ── */}}
+  <section class="post-hero">
+    <div class="container">
+      <a class="post-back" href="{{ "/" | relLangURL }}">
+        ← {{ if $isVn }}Tất cả bài viết{{ else }}All posts{{ end }}
+      </a>
+      <div class="post-kicker">
+        {{ with .Params.tag }}<span class="tag">{{ . }}</span>{{ end }}
+        <span class="post-time">
+          {{ if $isVn }}{{ .ReadingTime }} phút đọc{{ else }}{{ .ReadingTime }} min read{{ end }}
+        </span>
+      </div>
+      <h1 class="post-h1">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="post-subtitle">{{ . }}</p>{{ end }}
+    </div>
+
+    {{/* Hero illustration */}}
+    <div class="post-hero-img">
+      {{ partial "post-svg.html" . }}
+    </div>
+  </section>
+
+  {{/* ── POST BODY ── */}}
+  <section class="post-body">
+    <div class="container">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+
+      {{/* ── PREV / NEXT ── */}}
+      <nav class="post-nav">
+        {{ with .PrevInSection }}
+        <a class="post-nav-btn" href="{{ .Permalink }}">
+          ← {{ if $isVn }}Bài trước{{ else }}Previous{{ end }}
+        </a>
+        {{ else }}<span></span>{{ end }}
+
+        {{ with .NextInSection }}
+        <a class="post-nav-btn" href="{{ .Permalink }}">
+          {{ if $isVn }}Bài tiếp theo{{ else }}Next post{{ end }} →
+        </a>
+        {{ else }}<span></span>{{ end }}
+      </nav>
+    </div>
+  </section>
+</article>
+
+{{ end }}
