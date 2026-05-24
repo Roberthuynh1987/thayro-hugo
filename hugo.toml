@@ -1,0 +1,38 @@
+baseURL = "https://roberthuynh1987.github.io/thayro-hugo/"
+title = "Thấy Rõ"
+theme = "thayro"
+defaultContentLanguage = "vn"
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.vn]
+    languageName = "Tiếng Việt"
+    weight = 1
+    contentDir = "content/vn"
+    [languages.vn.params]
+      subtitle = "Không giáo điều. Không huyền bí. Chỉ là nhìn thật rõ."
+      tagline = "Quan sát tâm thức. Ứng dụng vào cuộc sống. Sống nhẹ hơn."
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+    [languages.en.params]
+      subtitle = "No dogma. No mysticism. Just seeing clearly."
+      tagline = "Observe the mind. Apply to life. Live lighter."
+
+[params]
+  author = "Thấy Rõ"
+  description = "Blog về tánh biết, nhận thức và sống bình an"
+  dateFormat = "02.01.2006"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
